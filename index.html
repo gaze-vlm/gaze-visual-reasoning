@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.3rem;
+            color: #111;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .authors {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #444;
+            line-height: 1.8;
+        }
+        .authors strong {
+            color: #111;
+        }
+        .affiliations {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0076ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-grey {
+            background-color: #555;
+        }
+        .btn-grey:hover {
+            background-color: #333;
+        }
+        section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 1.4rem;
+            color: #222;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        .project-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs</h1>
+        
+        <!-- Autori bilanciati simmetricamente 2 e 2 su due righe separate da un <br> -->
+        <div class="authors">
+            <strong>Dario Valentini</strong><sup>1,2</sup>, <strong>Matteo Moro</strong><sup>1</sup><br>
+            <strong>Vittorio Murino</strong><sup>2,3</sup>, <strong>Lucia Schiatti</strong><sup>1,2,4</sup>
+        </div>
+        
+        <div class="affiliations">
+            <sup>1</sup>University of Genoa, 
+            <sup>2</sup>Istituto Italiano di Tecnologia, 
+            <sup>3</sup>University of Verona, 
+            <sup>4</sup>Massachusetts Institute of Technology
+        </div>
+
+        <div class="links">
+            <a href="#" class="btn">📄 Paper (PDF)</a>
+            <a href="#" class="btn btn-grey">📊 Gaze Dataset</a>
+            <a href="#" class="btn btn-grey">💻 Code</a>
+        </div>
+    </header>
+
+    <!-- Sezione Immagine Principale (Framework/Teaser) -->
+    <section style="text-align: center;">
+        <h2>Project Overview</h2>
+        <!-- Sostituisci "teaser.png" con il nome esatto del tuo file immagine quando lo caricherai nel repository -->
+        <img src="teaser.png" alt="Gaze-Augmented Visual Reasoning Framework" class="project-img">
+    </section>
+
+    <section>
+        <h2>Abstract</h2>
+        <p>
+            This work investigates whether human gaze can improve high-level visual reasoning in open-source Vision-Language Models (VLMs), an area where current models display significant limitations. We extend <em>CogBench</em> by collecting high-resolution eye-tracking data from 30 human participants engaged in complex image recognition and reasoning tasks. We evaluate two distinct gaze-integration strategies across five LLaVA-family models: Learnable Gaze Gating (LGG), which applies scalar weights directly to image patches, and Dual Encoding (DE), which utilizes a dedicated visual encoder to process gaze heatmaps. 
+        </p>
+        <p>
+            Our results demonstrate that gaze integration is highly architecture-dependent: while older models benefit from LGG, advanced models like LLaVA-OneVision experience severe degradation under rigid gating but show substantial gains when using Dual Encoding. Across models, Event Reasoning, Event Relationship Reasoning, and Next Moment Event Reasoning obtain the lowest baseline scores, confirming that understanding events and their temporal or causal structure remains particularly challenging for VLMs. These results should therefore be interpreted as exploratory evidence of model-dependent behavior in gaze-conditioned configurations, serving as a pilot framework for future controlled experiments required to isolate the specific causal impact of human gaze on the observed performance changes. Additionally, our evaluation is limited to five models from the LLaVA family, with LLaVA-OneVision differing from the others in several architectural components simultaneously. Therefore, the resulting model-dependent trends should be interpreted as indicative. In future work, we will validate our findings across broader VLM families, together with multiple training runs and statistical tests to assess the robustness of the observed score differences.
+        </p>
+    </section>
+
+    <section>
+        <h2>BibTeX</h2>
+        <pre><code>@article{valentini2026gaze,
+  author    = {Valentini, Dario and Moro, Matteo and Murino, Vittorio and Schiatti, Lucia},
+  title     = {Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs},
+  journal   = {arXiv preprint},
+  year      = {2026}
+}</code></pre>
+    </section>
+
+    <footer>
+        <p>© 2026 Gaze-VLM Research. Layout optimized for academic publication tracking.</p>
+    </footer>
+</div>
+
+</body>
+</html>
