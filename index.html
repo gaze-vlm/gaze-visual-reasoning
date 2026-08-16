@@ -139,10 +139,8 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            This work investigates whether human gaze can improve high-level visual reasoning in open-source Vision-Language Models (VLMs), an area where current models display significant limitations. We extend <em>CogBench</em> by collecting high-resolution eye-tracking data from 30 human participants engaged in complex image recognition and reasoning tasks. We evaluate two distinct gaze-integration strategies across five LLaVA-family models: Learnable Gaze Gating (LGG), which applies scalar weights directly to image patches, and Dual Encoding (DE), which utilizes a dedicated visual encoder to process gaze heatmaps.
-          </p>
-          <p>
-            Our results demonstrate that gaze integration is highly architecture-dependent: while older models benefit from LGG, advanced models like LLaVA-OneVision experience severe degradation under rigid gating but show substantial gains when using Dual Encoding. Across models, Event Reasoning, Event Relationship Reasoning, and Next Moment Event Reasoning obtain the lowest baseline scores, confirming that understanding events and their temporal or causal structure remains particularly challenging for VLMs. These results should therefore be interpreted as exploratory evidence of model-dependent behavior in gaze-conditioned configurations, serving as a pilot framework for future controlled experiments required to isolate the specific causal impact of human gaze on the observed performance changes. Additionally, our evaluation is limited to five models from the LLaVA family, with LLaVA-OneVision differing from the others in several architectural components simultaneously. Therefore, the resulting model-dependent trends should be interpreted as indicative. In future work, we will validate our findings across broader VLM families, together with multiple training runs and statistical tests to assess the robustness of the observed score differences.
+            Large Vision-Language Models (VLMs) have achieved remarkable progress in visual recognition and processing, yet they struggle with high-level reasoning about complex scenes. Human gaze provides a task-dependent top-down signal of visual attention that reflects human ability to recognize entities and infer relationships and events. To investigate whether such behavioral cues can improve reasoning in open-source VLMs, we extended CogBench, a benchmark for structured visual reasoning, with eye-tracking data collected from human participants performing recognition and reasoning tasks. We evaluate two gaze integration strategies with varying levels of learned adaptation on five LLaVA-based models. 
+Our results show that the effectiveness of gaze integration is model-dependent and primarily benefits specific reasoning dimensions rather than mere visual recognition. Overall, our findings motivate further controlled investigation of human gaze as a behavioral prior for high-level visual reasoning. 
           </p>
         </div>
       </div>
@@ -150,7 +148,7 @@
   </div>
 </section>
 
-<!-- Sezione BibTeX -->
+<!-- Sezione BibTeX 
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
@@ -167,15 +165,15 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="content has-text-centered">
     <p>
       © 2026 Gaze-VLM Research Team. Project page code built upon academic layout configurations.
     </p>
   </div>
-</footer>
+</footer>  -->
 
 </body>
 </html>
