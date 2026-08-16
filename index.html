@@ -1,179 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs">
-  <meta name="keywords" content="Visual Representation, Human Gaze, Eye-Tracking, Vision-Language Models, VLMs, CogBench">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs</title>
-
-  <!-- Google Fonts -->
-  <link href="https://googleapis.com|Noto+Sans|Castoro" rel="stylesheet">
-
-  <!-- CDN Stylesheets (Bulma, FontAwesome, Academicons) -->
-  <link rel="stylesheet" href="https://jsdelivr.net">
-  <link rel="stylesheet" href="https://cloudflare.com">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
-  <style>
-    body {
-      font-family: 'Noto Sans', sans-serif;
-    }
-    .publication-title {
-      font-family: 'Google Sans', sans-serif;
-      font-weight: 700;
-    }
-    .publication-authors {
-      font-family: 'Google Sans', sans-serif;
-    }
-    .publication-links {
-      margin-top: 15px;
-    }
-    .publication-links .link-block {
-      display: inline-block;
-      margin-right: 10px;
-      margin-bottom: 10px;
-    }
-    .project-img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    pre {
-      background-color: #f5f5f5;
-      padding: 15px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.3rem;
+            color: #111;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .authors {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #444;
+            line-height: 1.8;
+        }
+        .authors strong {
+            color: #111;
+        }
+        .affiliations {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0076ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-grey {
+            background-color: #555;
+        }
+        .btn-grey:hover {
+            background-color: #333;
+        }
+        section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 1.4rem;
+            color: #222;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        .project-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs</h1>
-          
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><strong>Dario Valentini</strong><sup>1,2</sup>,</span>
-            <span class="author-block"><strong>Matteo Moro</strong><sup>1</sup>,</span>
-            <span class="author-block"><strong>Vittorio Murino</strong><sup>2,3</sup>,</span>
-            <span class="author-block"><strong>Lucia Schiatti</strong><sup>1,2,4</sup></span>
-          </div>
-
-          <div class="is-size-5 publication-authors" style="margin-top: 10px;">
-            <span class="author-block"><sup>1</sup>University of Genoa</span>,
-            <span class="author-block"><sup>2</sup>Istituto Italiano di Tecnologia</span>,
-            <span class="author-block"><sup>3</sup>University of Verona</span>,
-            <span class="author-block"><sup>4</sup>Massachusetts Institute of Technology</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- Link al Paper (PDF) -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              
-              <!-- Link al Dataset (Zenodo) -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-zenodo"></i>
-                  </span>
-                  <span>Dataset</span>
-                </a>
-              </span>
-              
-              <!-- Link al Codice (GitHub) -->
-              <span class="link-block">
-                <a href="https://github.com" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </a>
-              </span>
-            </div>
-          </div>
-
+<div class="container">
+    <header>
+        <h1>Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs</h1>
+        
+        <!-- Autori  -->
+        <div class="authors">
+            <strong>Dario Valentini</strong><sup>1,2</sup>, <strong>Matteo Moro</strong><sup>1</sup><br>
+            <strong>Vittorio Murino</strong><sup>2,3</sup>, <strong>Lucia Schiatti</strong><sup>1,2,4</sup>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Sezione Immagine Teaser (Project Overview) -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-centered">
-        <h2 class="title is-3">Project Overview</h2>
-        <div class="content">
-          <img src="teaser.PNG" alt="Gaze Integration Framework" class="project-img">
-          <p class="has-text-justified style="font-size: 0.95rem; margin-top: 15px; color: #555;">
-            <strong>Left:</strong> Examples of gaze heatmaps for different reasoning dimensions. 
-            <strong>Right:</strong> Proposed framework of gaze integration strategies within the models' architectures: 
-            i) Learnable Gaze Gating (LGG), in violet, coupled with projector fine-tuning; and 
-            ii) Dual Encoding (DE), in green, encoding gaze heatmaps into spatial embeddings to dynamically condition visual representations.
-          </p>
+        
+        <div class="affiliations">
+            <sup>1</sup>University of Genoa, 
+            <sup>2</sup>Istituto Italiano di Tecnologia, 
+            <sup>3</sup>University of Verona, 
+            <sup>4</sup>Massachusetts Institute of Technology
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Sezione Abstract -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths has-text-centered">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Large Vision-Language Models (VLMs) have achieved remarkable progress in visual recognition and processing, yet they struggle with high-level reasoning about complex scenes. Human gaze provides a task-dependent top-down signal of visual attention that reflects human ability to recognize entities and infer relationships and events. To investigate whether such behavioral cues can improve reasoning in open-source VLMs, we extended CogBench, a benchmark for structured visual reasoning, with eye-tracking data collected from human participants performing recognition and reasoning tasks. We evaluate two gaze integration strategies with varying levels of learned adaptation on five LLaVA-based models. 
+        <div class="links">
+            <a href="#" class="btn">📄 Paper (PDF)</a>
+            <a href="#" class="btn btn-grey">📊 Gaze Dataset</a>
+            <a href="#" class="btn btn-grey">💻 Code</a>
+        </div>
+    </header>
+
+    <!-- Sezione Immagine Principale (Framework/Teaser) -->
+    <section style="text-align: center;">
+        <h2>Project Overview</h2>
+        <img src="teaser.png" alt="Gaze-Augmented Visual Reasoning Framework" class="project-img">
+    </section>
+
+    <section>
+        <h2>Abstract</h2>
+        <p>
+          Large Vision-Language Models (VLMs) have achieved remarkable progress in visual recognition and processing, yet they struggle with high-level reasoning about complex scenes. Human gaze provides a task-dependent top-down signal of visual attention that reflects human ability to recognize entities and infer relationships and events. To investigate whether such behavioral cues can improve reasoning in open-source VLMs, we extended CogBench, a benchmark for structured visual reasoning, with eye-tracking data collected from human participants performing recognition and reasoning tasks. We evaluate two gaze integration strategies with varying levels of learned adaptation on five LLaVA-based models. 
 Our results show that the effectiveness of gaze integration is model-dependent and primarily benefits specific reasoning dimensions rather than mere visual recognition. Overall, our findings motivate further controlled investigation of human gaze as a behavioral prior for high-level visual reasoning. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </p>
+    </section>
 
-<!-- Sezione BibTeX 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3 has-text-centered">BibTeX</h2>
-        <div class="content">
-          <pre><code>@article{valentini2026gaze,
+    <section>
+        <h2>BibTeX</h2>
+        <pre><code>@article{valentini2026gaze,
   author    = {Valentini, Dario and Moro, Matteo and Murino, Vittorio and Schiatti, Lucia},
   title     = {Impact of Architecture and Integration Strategy on Gaze-Augmented Visual Reasoning in VLMs},
   journal   = {arXiv preprint},
   year      = {2026}
 }</code></pre>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
+    </section>
 
-<!-- <footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      © 2026 Gaze-VLM Research Team. Project page code built upon academic layout configurations.
-    </p>
-  </div>
-</footer>  -->
+   <!--  <footer>
+        <p>© 2026 Gaze-VLM Research. Layout optimized for academic publication tracking.</p>
+    </footer> -->
+</div>
 
 </body>
 </html>
